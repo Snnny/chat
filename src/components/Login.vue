@@ -9,7 +9,6 @@
         <img src="../assets/images/chat.jpg" alt="avatar">
       </div>
     </div>
-
     <!-- 用户名&密码 -->
     <div class="userInput">
       <div class="enter name">
@@ -22,6 +21,18 @@
         <span class="eye" @click="toggleSee" :class="{active: showPwd}"> 0000 </span>
       </div>
     </div>
+    
+    <!-- login -->
+    <div class="handle">
+      <mt-button type="primary" size="normal" plain>登录</mt-button>
+    </div>
+    
+
+    <!-- 第三方登录 -->
+
+    <div class="others">
+      <div class="other" v-for="item of thirds"> <span>{{ item }}</span></div>
+    </div>
   </div>
 </template>
 
@@ -32,7 +43,8 @@ export default {
     return {
       avatar: '../assets/images/chat.jpg',
       showPwd: false,
-      pwdType: 'password'
+      pwdType: 'password',
+      thirds: ['QQ', '微信', '微博']
     }
   },
   created () {
@@ -148,6 +160,23 @@ export default {
             }
           }
       }
+    }
+  }
+  /*登录按钮区域*/
+  .handle {
+    text-align: center;
+  }
+  /* 第三方 */
+  .others {
+    display: flex;
+    margin: rem(100) auto;
+    width: rem(500);
+    height: rem(300);
+    border-top: 1px solid #fff;
+    .other {
+      flex: 1;
+      text-align: center;
+      align-items: center
     }
   }
 }
